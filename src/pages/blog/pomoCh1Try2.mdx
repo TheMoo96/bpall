@@ -18,7 +18,7 @@ As shown in the past chapter (which is now about a year old), I had a pretty goo
 
 The easiest choice was the microcontroller (MCU from here on), as the world is suffering from a MCU shortage which has a lot of very, *very*... **very** large companies struggling with obtaining the MCUs they need. This means that for the average person, the choice becomes much easier. *"What have you got?"*. As a coincidence, the Raspberry Pi foundation had come out with their own MCU, the RP2040, and it had magically dodged the worst of the MCU shortage. What luck, eh? The RP2040 also features some genuinely cool features, so I also had some personal interest in using it for a project. The MCU isn't actually on the PCB as of right now, but I still wanted to mention it as it will become relevant.
 
-Next up was the RGB LEDs. Originally I intended on using the WS2812 (What is commonly in the Neopixels from AdaFruit). These are serially addressable, which allows them to be chained together. That means that data and power flow from the first to the last LED, instead of requiring a dedicated data and power line for every LED. Very useful. ***But*** finding these very popular LEDs as individual components proved very hard. So instead I went with what some called a "chinese clone" version: the SK6812. Luckily for me they work just fine, and they are cheaper (and AdaFruit now uses them as Neopixels too?). They also come in a mini version, 3.5mm<sup>2</sup> contra 5mm<sup>2</sup>. As the pomoljus is supposed to be a small portable device, small LEDs are good. They did end up biting me at one point though.
+Next up was the RGB LEDs. Originally I intended on using the WS2812 (What is commonly in the Neopixels from AdaFruit). These are serially addressable, which allows them to be chained together. That means that data and power flow from the first to the last LED, instead of requiring a dedicated data and power line for every LED. Very useful. ***But*** finding these very popular LEDs as individual components proved very hard. So instead I found (what some call a) "chinese clone" version: the SK6812. Luckily for me they work just fine<sup>[\[2\]](#references)</sup>, and they are cheaper (and AdaFruit now uses them as Neopixels too?). They also come in a mini version, 3.5mm<sup>2</sup> contra 5mm<sup>2</sup>. As the pomoljus is supposed to be a small portable device, small LEDs are good. They did end up biting me at one point though.
 
 Lastly we have the buttons. I just bought a small selection of buttons that were the right size and felt how they clicked. They say that the fewer ingredients you have in your food, the better those ingredients needs to be. I figured the same principle would be accurate here. The buttons feel good.
 
@@ -43,11 +43,15 @@ And that ought to be all the components needed. We also have a connector too, bu
 
 (paus i skrivandet)
 
+### What
+
 To buy a component is not a trivial task as a beginner. Decision fatigue sets in real quick when the pool of choices is in the thousands for a simple resistor. Even if you already know the value, the choice of how to mount it, which size it has, the tolerance of its value, and probably something else still remains.
 
 For the pomoljus I chose to go with *surface mounted components* (SMDs), as *through hole components* (THTs) require a hole... for the component... to be mounted through... Which takes up space on the other side, as well as the side you're mounting it on. While THTs are easier to solder, they do end up taking up much more space. As I wished for the pomoljus to be a small device, I chose to go for SMDs instead. For SMDs, you're either limited by the wattage requirements (which for this project are low enough), or your proficiency with a soldering iron. You could go for a resistor the size of a grain of sand, or you could go for something that doesn't drift across the room on the air-streams created by the heat radiating off of your sweating forehead as you try recover from a sudden desktop visit from your cat... ... I chose 0608, for my resistors, and the rest of the components were around that size too. For the transistor you also have the choice of package, which is basically the same story but you're instead challenged by the pitch (or size) of the leads coming off the component. 
 
-Where to buy, options. 
+### Where
+
+Of course your selection is only as good as the store you use. Here it's worth leaning towards more industrial-focused stores, such as Mouser, Elfa Distrelec, DigiKey, Farnell, or TME. [add links] Sometimes you can get all your components from one place, other times you gotta shop around. I stumbled upon TME when they seemed to be the only store who carried the SK6812, at a reasonable price. They delivered in a silver antistatic baggie containing the bubble wrapped components, a huge silica baggie, and a moisture indicator. Pros all around. Just be mindful to not buy them from a store which adds a 40% markup for the same product simply because they're *easy* to buy from (looking at you Electrokit).
 
 ## The CAD
 
@@ -58,3 +62,4 @@ Now you have all the bo
 
 ### References
 1. https://en.wikipedia.org/wiki/Water_hammer
+2. https://hackaday.com/2017/01/25/ws2812b-led-clones-work-better-than-originals/
